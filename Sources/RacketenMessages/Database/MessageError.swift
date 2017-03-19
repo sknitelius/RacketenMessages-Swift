@@ -24,7 +24,7 @@
 
 import Foundation
 
-public enum TodoCollectionError: Error {
+public enum MessageError: Error {
 
     case connectionRefused
     case idNotFound(String)
@@ -33,23 +33,23 @@ public enum TodoCollectionError: Error {
     case authError
 }
 
-extension TodoCollectionError: LocalizedError {
-    
+extension MessageError: LocalizedError {
+
     var errorDescription: String {
-        
+
         switch self {
         case .connectionRefused:
             return "Connection was refused"
         case .idNotFound(let id):
-            return "Item \(id) was not found"
+            return "Message \(id) was not found"
         case .creationError(let error):
-            return "Creating todo item failed: \(error)"
+            return "Message could not be created: \(error)"
         case .parseError:
-            return "Parsing todo item failed"
+            return "Parsing message failed"
         case .authError:
             return "Authorization error"
         }
-        
+
     }
-    
+
 }

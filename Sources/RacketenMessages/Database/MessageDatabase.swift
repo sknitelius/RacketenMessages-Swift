@@ -74,14 +74,14 @@ public final class MessageDatabase {
             guard let result = queryResult,
                   result.success == true,
                   let resultSet = result.asResultSet else {
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 
             let fields = resultToRows(resultSet: resultSet)
 
             guard let messages = try? fields.flatMap(Message.init(fields:)) else {
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 
@@ -100,19 +100,19 @@ public final class MessageDatabase {
             guard let result = queryResult,
                   result.success == true,
                   let resultSet = result.asResultSet else {
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 
             let fields = resultToRows(resultSet: resultSet)
 
             guard let messages = try? fields.flatMap(Message.init(fields:)) else {
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 
             guard messages.count == 1 else {
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 
@@ -141,7 +141,7 @@ public final class MessageDatabase {
                   result.success == true,
                   let resultSet = result.asResultSet else {
 
-                oncompletion(nil, TodoCollectionError.parseError)
+                oncompletion(nil, MessageError.parseError)
                 return
             }
 

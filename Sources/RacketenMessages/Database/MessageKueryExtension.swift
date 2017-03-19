@@ -38,7 +38,7 @@ extension Message: FieldMappable {
         guard let id = fields["id"],
               let msg = fields["msg"],
               let usr = fields["usr"] else {
-            throw TodoCollectionError.authError
+            throw MessageError.authError
         }
 
         let fId = id as! String

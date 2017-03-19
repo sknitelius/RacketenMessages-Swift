@@ -47,7 +47,6 @@ public final class MessageController {
 
     private func setupRoutes() {
         router.all("/api/message/*", middleware: BodyParser())
-        router.all("/api/message/*", middleware: AllRemoteOriginMiddleware())
         router.get("/api/messages/", handler: onGetMessages)
         router.get("/api/message/:id", handler: onGetByID)
         router.put("/api/message/", handler: onAddMessage)
@@ -62,12 +61,12 @@ public final class MessageController {
                     Log.error(error.debugDescription)
                     return
                 }
-                guard let messages = messages else {
+                if let messages = messages {
+                    let json = JSON(messages.toDictionary())
+                    try response.status(.OK).send(json: json).end()
+                } else {
                     try response.status(.internalServerError).end()
-                    return
                 }
-                let json = JSON(messages.toDictionary())
-                try response.status(.OK).send(json: json).end()
             } catch {
                 Log.error("Communication error")
             }

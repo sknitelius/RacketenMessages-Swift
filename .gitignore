@@ -1,0 +1,7 @@
+.build
+build
+Packages
+*.pkg
+*.xcodeproj
+*.DS_Store
+vcs.xml

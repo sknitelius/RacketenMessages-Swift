@@ -34,7 +34,9 @@ Log.logger = HeliumLogger()
 
 let connection = PostgreSQLConnection(host: "localhost",
                                       port: 5432,
-                                      options: [.databaseName("messages"), .userName("dev"), .password("topsecret")])
+                                      options: [.databaseName("messages"),
+                                                .userName("dev"),
+                                                .password("topsecret")])
 
 let messageDatabase: MessageDatabase = MessageDatabase(connection: connection)
 

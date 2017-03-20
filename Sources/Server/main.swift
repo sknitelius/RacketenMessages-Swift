@@ -42,6 +42,6 @@ let messageDatabase: MessageDatabase = MessageDatabase(connection: connection)
 
 let controller = MessageController(backend: messageDatabase)
 
-Kitura.addHTTPServer(onPort: 9080, with: controller.router)
+Kitura.addHTTPServer(onPort: 8090, with: controller.router)
 Kitura.run()
 

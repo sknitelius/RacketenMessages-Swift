@@ -28,8 +28,6 @@ public typealias Fields = [String: Any]
 
 public protocol FieldMappable {
     
-    //init?( fields: Fields ) throws
-    
 }
 
 func resultToRows(resultSet: ResultSet) -> [Fields] {

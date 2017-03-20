@@ -47,7 +47,7 @@ public final class MessageController {
 
     private func setupRoutes() {
         router.all("/api/message/*", middleware: BodyParser())
-        router.get("/api/messages/", handler: onGetMessages)
+        router.get("/api/message/all", handler: onGetMessages)
         router.get("/api/message/:id", handler: onGetByID)
         router.put("/api/message/", handler: onAddMessage)
     }

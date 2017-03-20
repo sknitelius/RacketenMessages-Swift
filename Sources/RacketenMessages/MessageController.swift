@@ -28,15 +28,7 @@ import Kitura
 import LoggerAPI
 import SwiftyJSON
 
-class AllRemoteOriginMiddleware: RouterMiddleware {
-    func handle(request: RouterRequest, response: RouterResponse, next: @escaping () -> Swift.Void) {
-        response.headers["Access-Control-Allow-Origin"] = "*"
-        next()
-    }
-}
-
 public final class MessageController {
-    public let messagePath = "message"
     public let messageDatabase: MessageDatabase
     public let router = Router()
 
